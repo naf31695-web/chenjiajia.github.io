@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>放置类竞品横评：寻道大千 × 杖剑传说 × 咸鱼之王 · 陈佳佳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Serif+SC:wght@300;400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf7; --bg-card: #ffffff;
+    --ink: #1a1a1a; --ink-soft: #3a3a3a; --ink-body: #2a2a2a; --ink-muted: #8a8a8a;
+    --line: #e8e4dc; --line-soft: #f0ede5;
+    --accent: #b8860b; --accent-soft: #d4a84b;
+    --highlight: #fff8e7; --quote-bg: #f9f5ec;
+    /* 三款产品对应色 */
+    --c-xdds: #d97706;  /* 寻道大千 橙 */
+    --c-zjcs: #1e40af;  /* 杖剑传说 蓝 */
+    --c-xyzw: #059669;  /* 咸鱼之王 绿 */
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: var(--bg); color: var(--ink-body);
+    line-height: 1.85; font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .top-ribbon {
+    background: var(--ink); color: var(--bg);
+    padding: 14px 0; text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 3px;
+  }
+  .top-ribbon a { color: var(--accent-soft); text-decoration: none; margin-left: 12px; }
+
+  .cover {
+    padding: 100px 0 80px;
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(184, 134, 11, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(58, 90, 124, 0.04) 0%, transparent 50%);
+  }
+  .cover-inner { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+  .cover-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 4px;
+    color: var(--accent); margin-bottom: 32px;
+  }
+  .cover-eyebrow::before {
+    content: ''; display: inline-block;
+    width: 30px; height: 1px; background: var(--accent);
+    vertical-align: middle; margin-right: 16px;
+  }
+  .cover-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 48px; font-weight: 900; line-height: 1.2;
+    color: var(--ink); margin-bottom: 20px; letter-spacing: -1px;
+  }
+  .cover-title .em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-weight: 400; color: var(--accent);
+  }
+  .cover-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 22px;
+    color: var(--ink-muted); margin-bottom: 48px;
+  }
+
+  /* 三款产品封面卡 */
+  .product-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 40px;
+  }
+  .product-card-mini {
+    background: var(--bg-card); border: 1px solid var(--line);
+    padding: 20px; text-align: center; position: relative;
+  }
+  .product-card-mini .mini-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    object-fit: cover; display: block; margin: 0 auto 14px;
+    border: 1px solid var(--line); box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .product-card-mini .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    margin: 0 auto 12px; display: block;
+  }
+  .product-card-mini.xdds .dot { background: var(--c-xdds); }
+  .product-card-mini.zjcs .dot { background: var(--c-zjcs); }
+  .product-card-mini.xyzw .dot { background: var(--c-xyzw); }
+  .product-card-mini .name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px; font-weight: 700; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .product-card-mini .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--ink-muted);
+    letter-spacing: 2px;
+  }
+
+  .content { max-width: 860px; margin: 0 auto; padding: 80px 40px; }
+  .chapter { margin-bottom: 80px; }
+  .chapter-header {
+    margin-bottom: 32px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .chapter-num {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 14px; color: var(--accent);
+    letter-spacing: 3px; margin-bottom: 8px;
+  }
+  .chapter-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 34px; font-weight: 900;
+    color: var(--ink); letter-spacing: -0.5px; line-height: 1.3;
+  }
+  .chapter-title::before {
+    content: ''; display: inline-block;
+    width: 6px; height: 26px; background: var(--accent);
+    margin-right: 16px; vertical-align: -4px;
+  }
+
+  .content p {
+    font-size: 15.5px; line-height: 1.9;
+    color: var(--ink-body); margin-bottom: 20px;
+  }
+  .content p strong {
+    color: var(--ink); font-weight: 500;
+    background: var(--highlight); padding: 0 3px;
+  }
+  .content h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px; font-weight: 700; color: var(--ink);
+    margin: 36px 0 16px; padding-left: 16px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .lead {
+    font-size: 18px !important; line-height: 1.9;
+    color: var(--ink-soft) !important; font-style: italic;
+    padding: 24px 28px; background: var(--quote-bg);
+    border-left: 4px solid var(--accent);
+    margin-bottom: 32px !important;
+  }
+
+  /* 产品概览大卡 */
+  .product-overview {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 28px; padding: 32px;
+    background: var(--bg-card); border: 1px solid var(--line);
+    margin: 24px 0; position: relative;
+  }
+  .product-overview::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; width: 6px; height: 100%;
+  }
+  .product-overview.xdds::before { background: var(--c-xdds); }
+  .product-overview.zjcs::before { background: var(--c-zjcs); }
+  .product-overview.xyzw::before { background: var(--c-xyzw); }
+
+  .product-overview .avatar {
+    width: 200px; height: 200px;
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    background: #f0ede5; flex-shrink: 0;
+  }
+  .product-overview .avatar img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .product-overview .meta h4 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px; font-weight: 900;
+    color: var(--ink); margin-bottom: 6px;
+  }
+  .product-overview .meta .sub {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 15px; color: var(--ink-muted); margin-bottom: 16px;
+  }
+  .product-overview .meta .desc {
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink-body); margin-bottom: 16px;
+  }
+  .product-overview .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    padding-top: 16px; border-top: 1px dashed var(--line);
+  }
+  .product-overview .stat-block {
+    text-align: center;
+  }
+  .product-overview .stat-block .num {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: 18px; color: var(--ink);
+  }
+  .product-overview .stat-block .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--ink-muted);
+    letter-spacing: 1px; margin-top: 2px;
+  }
+
+  /* 对比表格 */
+  .compare-table {
+    width: 100%; border-collapse: collapse; margin: 24px 0;
+    font-size: 13px; background: var(--bg-card);
+    border: 1px solid var(--line);
+  }
+  .compare-table th {
+    background: var(--ink); color: var(--bg);
+    padding: 14px 12px; text-align: left;
+    font-weight: 500; font-size: 12px; letter-spacing: 1px;
+  }
+  .compare-table th.xdds { background: var(--c-xdds); }
+  .compare-table th.zjcs { background: var(--c-zjcs); }
+  .compare-table th.xyzw { background: var(--c-xyzw); }
+  .compare-table td {
+    padding: 12px; border-bottom: 1px solid var(--line);
+    color: var(--ink-body); vertical-align: top; line-height: 1.7;
+  }
+  .compare-table td:first-child {
+    font-weight: 600; color: var(--ink);
+    background: var(--line-soft); width: 110px;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table strong { color: var(--ink); font-weight: 600; }
+
+  /* 玩家引言卡片 */
+  .quote-card {
+    background: var(--bg-card); border: 1px solid var(--line);
+    padding: 20px 24px; margin: 24px 0; position: relative;
+  }
+  .quote-card::before {
+    content: '"'; position: absolute;
+    top: -12px; left: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 56px; color: var(--accent);
+    background: var(--bg); padding: 0 8px;
+    line-height: 1; font-weight: 900;
+  }
+  .quote-card p {
+    font-size: 14px !important; color: var(--ink-body) !important;
+    line-height: 1.8; margin-bottom: 10px !important; font-style: italic;
+  }
+  .quote-card .source {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--ink-muted); letter-spacing: 1px;
+  }
+
+  /* 雷达图/图示 */
+  .visual-box {
+    background: var(--bg-card); border: 1px solid var(--line);
+    padding: 32px; margin: 28px 0; text-align: center;
+  }
+  .visual-caption {
+    font-size: 12px; color: var(--ink-muted); font-style: italic;
+    padding-top: 12px; margin-top: 16px;
+    border-top: 1px dashed var(--line);
+  }
+  .visual-caption .fig {
+    color: var(--accent); font-weight: 700; margin-right: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .insight-box {
+    background: linear-gradient(135deg, var(--quote-bg) 0%, var(--bg-card) 100%);
+    border: 1px solid var(--accent-soft);
+    padding: 28px 32px; margin: 32px 0; position: relative;
+  }
+  .insight-box::before {
+    content: 'INSIGHT'; position: absolute;
+    top: -10px; left: 24px;
+    background: var(--accent); color: #fff;
+    padding: 3px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 2px; font-weight: 700;
+  }
+  .insight-box p {
+    font-size: 14.5px !important; line-height: 1.85;
+    color: var(--ink) !important; margin: 0 !important;
+  }
+  .insight-box p strong { color: var(--accent); background: transparent; }
+
+  /* 路径卡片 */
+  .path-card {
+    background: var(--bg-card); padding: 28px;
+    margin: 20px 0; position: relative;
+    border: 1px solid var(--line);
+  }
+  .path-card.xdds { border-left: 4px solid var(--c-xdds); }
+  .path-card.zjcs { border-left: 4px solid var(--c-zjcs); }
+  .path-card.xyzw { border-left: 4px solid var(--c-xyzw); }
+  .path-card .path-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 2px;
+    color: var(--ink-muted); margin-bottom: 8px;
+  }
+  .path-card h4 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--ink); margin-bottom: 12px;
+  }
+  .path-card .path-core {
+    font-size: 15px; font-weight: 500;
+    color: var(--ink); margin-bottom: 12px;
+    padding: 10px 14px; background: var(--highlight);
+    border-radius: 2px;
+  }
+  .path-card p {
+    font-size: 14px !important;
+    margin-bottom: 12px !important; line-height: 1.8;
+  }
+  .path-card .takeaway {
+    font-size: 13px;
+    color: var(--ink-muted);
+    padding-top: 12px; margin-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-style: italic;
+  }
+
+  .closing {
+    padding: 60px 0; text-align: center;
+    border-top: 2px solid var(--ink); margin-top: 60px;
+  }
+  .closing-mark {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 22px; color: var(--accent);
+    letter-spacing: 4px; margin-bottom: 20px;
+  }
+  .closing-text {
+    font-size: 14px; color: var(--ink-muted);
+    font-style: italic; max-width: 600px;
+    margin: 0 auto; line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    .cover-inner { padding: 0 24px; }
+    .cover-title { font-size: 28px; }
+    .cover-sub { font-size: 16px; }
+    .product-strip { grid-template-columns: 1fr; }
+    .content { padding: 40px 24px; }
+    .chapter-title { font-size: 22px; }
+    .content p { font-size: 14.5px; }
+    .product-overview { grid-template-columns: 1fr; padding: 20px; }
+    .product-overview .avatar { width: 140px; height: 140px; margin: 0 auto; }
+    .product-overview .stats { grid-template-columns: 1fr 1fr; }
+    .compare-table { font-size: 12px; }
+    .compare-table th, .compare-table td { padding: 8px; }
+    .compare-table td:first-child { width: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-ribbon">
+  CHEN JIAJIA · PORTFOLIO 02 ·
+  <a href="./index.html">← 返回主页</a>
+</div>
+
+<section class="cover">
+  <div class="cover-inner">
+    <div class="cover-eyebrow">COMPETITOR ANALYSIS · 02</div>
+    <h1 class="cover-title">
+      放置类竞品横评<br>
+      <span class="em">寻道大千</span> × <span class="em">杖剑传说</span> × <span class="em">咸鱼之王</span>
+    </h1>
+    <div class="cover-sub">Three paths. Three players. One track.</div>
+
+    <div class="product-strip">
+      <div class="product-card-mini xdds">
+        <img class="mini-icon" src="./assets/work02/icon-xdds.png" width="56" height="56" alt="寻道大千">
+        <span class="dot"></span>
+        <div class="name">寻道大千</div>
+        <div class="tag">修仙 · 开箱 Like</div>
+      </div>
+      <div class="product-card-mini zjcs">
+        <img class="mini-icon" src="./assets/work02/icon-zjcs.png" width="56" height="56" alt="杖剑传说">
+        <span class="dot"></span>
+        <div class="name">杖剑传说</div>
+        <div class="tag">日系 · 放置 MMO</div>
+      </div>
+      <div class="product-card-mini xyzw">
+        <img class="mini-icon" src="./assets/work02/icon-xyzw.png" width="56" height="56" alt="咸鱼之王">
+        <span class="dot"></span>
+        <div class="name">咸鱼之王</div>
+        <div class="tag">休闲 · 三国卡牌</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<article class="content">
+
+  <p class="lead">
+    "放置类"这三个字看似是一个赛道，其实内部方向差得非常远。我选了 2023 年以来国内放置类市场里三款最有代表性的产品——《寻道大千》《杖剑传说》《咸鱼之王》——做一次横向对比。它们分别走出了三条完全不同的路：一条用买量炸开市场拿下小游戏榜首、一条靠美术与社区活在 TapTap 核心圈、一条用微信小程序撬动下沉休闲用户。这份报告不是评判谁更好，而是想看清——<strong>放置类这个筐里，到底装着几种截然不同的生意</strong>。
+  </p>
+
+  <!-- 章节 1：三款产品速览 -->
+  <section class="chapter">
+    <div class="chapter-header">
+      <div class="chapter-num">CHAPTER 01 / PRODUCT OVERVIEW</div>
+      <h2 class="chapter-title">三款产品，先各认识一下</h2>
+    </div>
+
+    <p>
+      在开始对比前，先简单介绍这三款产品各自的基本信息和定位。它们都具备放置类的核心特征——<strong>挂机收益、轻操作、成长持续可见</strong>——但在题材、玩法设计和目标用户上是完全不同的三种答案。
+    </p>
+
+    <!-- 寻道大千 -->
+    <div class="product-overview xdds">
+      <div class="avatar">
+        <img src="./assets/work02/icon-xdds.png" alt="寻道大千">
+      </div>
+      <div class="meta">
+        <h4>寻道大千</h4>
+        <div class="sub">Taoist Realm · 三七互娱 · 2023.06 公测</div>
+        <div class="desc">国风修仙题材的放置养成手游，核心玩法"开局一棵树，装备全靠砍"——玩家扮演小妖（猴、鸟、鱼、猪任选），通过砍仙树爆出装备、渡劫提升境界。属于典型的"开箱 Like"改良版，把复杂修仙包装成轻量点击操作。是 2023 年小游戏市场的现象级产品。</div>
+        <div class="stats">
+          <div class="stat-block">
+            <div class="num">7亿+</div>
+            <div class="lbl">峰值月流水</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">TOP 3</div>
+            <div class="lbl">微信小游戏畅销</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">28亿+</div>
+            <div class="lbl">24年买量投放</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 杖剑传说 -->
+    <div class="product-overview zjcs">
+      <div class="avatar">
+        <img src="./assets/work02/icon-zjcs.png" alt="杖剑传说">
+      </div>
+      <div class="meta">
+        <h4>杖剑传说</h4>
+        <div class="sub">Arcane Blade Legend · 雷霆游戏 · 2025 公测</div>
+        <div class="desc">自称"异世界轻松放置社交 MMORPG"。在放置类基础上叠加了 2D 大世界探索、职业转职、赛季养成、工会讨伐等 MMO 元素。主打"睡觉变强"的低肝度体验，搭配日系二次元美术，目标用户是"想玩 MMO 但肝不动"的成年玩家。</div>
+        <div class="stats">
+          <div class="stat-block">
+            <div class="num">3.6万+</div>
+            <div class="lbl">TapTap 攻略量</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">精品路线</div>
+            <div class="lbl">社区口碑驱动</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">5 职业</div>
+            <div class="lbl">骑士/斗士/术士/贤者</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 咸鱼之王 -->
+    <div class="product-overview xyzw">
+      <div class="avatar">
+        <img src="./assets/work02/icon-xyzw.png" alt="咸鱼之王">
+      </div>
+      <div class="meta">
+        <h4>咸鱼之王</h4>
+        <div class="sub">Fish Kingdom · 豪腾嘉科 · 2021 上线</div>
+        <div class="desc">魔性搞怪画风的休闲放置挂机手游。玩家化身阿咸，指挥厨房里的三国题材咸鱼们排兵布阵。核心玩法是 Q 版三国卡牌+自动战斗+PVP 排位，辅以钓鱼、黑市、淬炼等多元小玩法。典型的微信小程序+APP 双版本经典，主打下沉与休闲用户。</div>
+        <div class="stats">
+          <div class="stat-block">
+            <div class="num">三国题材</div>
+            <div class="lbl">Q版卡牌养成</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">双端互通</div>
+            <div class="lbl">微信+APP</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">长线运营</div>
+            <div class="lbl">上线 4 年持续更新</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      你会发现这三款游戏其实<strong>根本不在同一个"战场"</strong>：《寻道大千》打的是买量小游戏的速决战，《杖剑传说》打的是核心玩家社区的阵地战，《咸鱼之王》打的是微信生态里的持久战。它们在放置类这个标签下做的是完全不同的生意。
+    </p>
+  </section>
+
+  <!-- 章节 2：五大维度对比 -->
+  <section class="chapter">
+    <div class="chapter-header">
+      <div class="chapter-num">CHAPTER 02 / DEEP COMPARISON</div>
+      <h2 class="chapter-title">五个维度，逐一拆开看</h2>
+    </div>
+
+    <p>
+      光看定位还不够，要理解三款产品的真正差异，需要从具体设计层面一个一个对比。我选了五个对放置类最关键的维度——<strong>题材包装、核心玩法、数值与付费、长线留存、社区声量</strong>——做横向对照。
+    </p>
+
+    <!-- 雷达图 -->
+    <div class="visual-box">
+      <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:560px;">
+        <!-- 五边形外圈 -->
+        <g transform="translate(300, 240)">
+          <!-- 背景五层 -->
+          <polygon points="0,-180 171,-56 106,146 -106,146 -171,-56" fill="none" stroke="#e8e4dc" stroke-width="1"/>
+          <polygon points="0,-144 137,-45 84,117 -84,117 -137,-45" fill="none" stroke="#e8e4dc" stroke-width="1"/>
+          <polygon points="0,-108 103,-34 63,88 -63,88 -103,-34" fill="none" stroke="#e8e4dc" stroke-width="1"/>
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#e8e4dc" stroke-width="1"/>
+          <polygon points="0,-36 34,-11 21,29 -21,29 -34,-11" fill="none" stroke="#e8e4dc" stroke-width="1"/>
+
+          <!-- 五轴 -->
+          <line x1="0" y1="0" x2="0" y2="-180" stroke="#d4d0c8" stroke-width="1"/>
+          <line x1="0" y1="0" x2="171" y2="-56" stroke="#d4d0c8" stroke-width="1"/>
+          <line x1="0" y1="0" x2="106" y2="146" stroke="#d4d0c8" stroke-width="1"/>
+          <line x1="0" y1="0" x2="-106" y2="146" stroke="#d4d0c8" stroke-width="1"/>
+          <line x1="0" y1="0" x2="-171" y2="-56" stroke="#d4d0c8" stroke-width="1"/>
+
+          <!-- 寻道大千 橙色 -->
+          <!-- 题材80 玩法90 数值85 留存60 社区85 -->
+          <polygon
+            points="0,-144 154,-50 64,88 -63,88 -145,-47"
+            fill="#d97706" fill-opacity="0.15"
+            stroke="#d97706" stroke-width="2"/>
+          <!-- 顶点 -->
+          <circle cx="0" cy="-144" r="4" fill="#d97706"/>
+          <circle cx="154" cy="-50" r="4" fill="#d97706"/>
+          <circle cx="64" cy="88" r="4" fill="#d97706"/>
+          <circle cx="-63" cy="88" r="4" fill="#d97706"/>
+          <circle cx="-145" cy="-47" r="4" fill="#d97706"/>
+
+          <!-- 杖剑传说 蓝色 -->
+          <!-- 题材70 玩法80 数值70 留存85 社区90 -->
+          <polygon
+            points="0,-126 137,-45 53,73 -89,125 -154,-50"
+            fill="#1e40af" fill-opacity="0.15"
+            stroke="#1e40af" stroke-width="2"/>
+          <circle cx="0" cy="-126" r="4" fill="#1e40af"/>
+          <circle cx="137" cy="-45" r="4" fill="#1e40af"/>
+          <circle cx="53" cy="73" r="4" fill="#1e40af"/>
+          <circle cx="-89" cy="125" r="4" fill="#1e40af"/>
+          <circle cx="-154" cy="-50" r="4" fill="#1e40af"/>
+
+          <!-- 咸鱼之王 绿色 -->
+          <!-- 题材90 玩法65 数值60 留存80 社区70 -->
+          <polygon
+            points="0,-162 111,-36 38,52 -84,117 -120,-39"
+            fill="#059669" fill-opacity="0.15"
+            stroke="#059669" stroke-width="2"/>
+          <circle cx="0" cy="-162" r="4" fill="#059669"/>
+          <circle cx="111" cy="-36" r="4" fill="#059669"/>
+          <circle cx="38" cy="52" r="4" fill="#059669"/>
+          <circle cx="-84" cy="117" r="4" fill="#059669"/>
+          <circle cx="-120" cy="-39" r="4" fill="#059669"/>
+        </g>
+
+        <!-- 标签 -->
+        <text x="300" y="50" font-family="Noto Serif SC" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">题材包装</text>
+        <text x="490" y="180" font-family="Noto Serif SC" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="start">核心玩法</text>
+        <text x="420" y="410" font-family="Noto Serif SC" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">数值与付费</text>
+        <text x="180" y="410" font-family="Noto Serif SC" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">长线留存</text>
+        <text x="110" y="180" font-family="Noto Serif SC" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="end">社区声量</text>
+
+        <!-- 图例 -->
+        <g transform="translate(30, 440)">
+          <rect x="0" y="0" width="14" height="14" fill="#d97706"/>
+          <text x="20" y="12" font-family="Noto Sans SC" font-size="12" fill="#1a1a1a">寻道大千</text>
+          <rect x="100" y="0" width="14" height="14" fill="#1e40af"/>
+          <text x="120" y="12" font-family="Noto Sans SC" font-size="12" fill="#1a1a1a">杖剑传说</text>
+          <rect x="200" y="0" width="14" height="14" fill="#059669"/>
+          <text x="220" y="12" font-family="Noto Sans SC" font-size="12" fill="#1a1a1a">咸鱼之王</text>
+        </g>
+      </svg>
+      <div class="visual-caption">
+        <span class="fig">图 2.1</span>三款放置类产品五维能力对比（作者基于产品体验与公开资料的主观评估，仅供比较参考）
+      </div>
+    </div>
+
+    <h3>维度 1：题材包装</h3>
+    <p>
+      题材是放置类产品的第一张脸。三款产品给出了三种完全不同的答案：《寻道大千》用"<strong>国风修仙</strong>"切进下沉市场的文化共鸣点，小妖修炼、渡劫升境这些元素自带熟悉感和代入感；《杖剑传说》走的是"<strong>日系轻奇幻</strong>"路线，2D 二次元画风+异世界题材，瞄准的是泛二次元用户；《咸鱼之王》则是最讨巧的选择——"<strong>三国 IP + 魔性咸鱼</strong>"，既有国民级认知的三国将领，又有反差萌的 Q 版咸鱼形象。
+    </p>
+
+    <p>
+      三种题材策略背后是不同的获客逻辑。《寻道大千》靠修仙题材在三四线城市的中年男性群体里引发共鸣，配合"开局一棵树"的洗脑广告语大规模买量；《咸鱼之王》靠三国+搞怪的反差感降低用户门槛，通过微信社交裂变；《杖剑传说》则以美术和世界观品质做口碑传播，让核心玩家自发安利。
+    </p>
+
+    <h3>维度 2：核心玩法</h3>
+    <p>
+      这三款游戏名义上都是"放置类"，但放置的内核完全不同。
+    </p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width: 110px;">维度</th>
+          <th class="xdds">寻道大千</th>
+          <th class="zjcs">杖剑传说</th>
+          <th class="xyzw">咸鱼之王</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>核心循环</td>
+          <td>砍树爆装备→渡劫升境界→解锁新玩法</td>
+          <td>睡觉/挂机产经验→升级转职→推图推副本</td>
+          <td>招募咸将→养成淬炼→PVE推关+PVP排位</td>
+        </tr>
+        <tr>
+          <td>操作强度</td>
+          <td><strong>极轻</strong>（点击/自动）</td>
+          <td><strong>轻-中</strong>（战斗自动，构筑有策略）</td>
+          <td><strong>极轻</strong>（自动战斗，阵容搭配）</td>
+        </tr>
+        <tr>
+          <td>PVE 深度</td>
+          <td>境界推图+限时副本，深度一般</td>
+          <td><strong>多地图+副本难度分层+赛季</strong>，较深</td>
+          <td>关卡闯关+日常副本+BOSS 战，中等</td>
+        </tr>
+        <tr>
+          <td>PVP 机制</td>
+          <td>妖盟 GVG+组队冲妖域</td>
+          <td>工会讨伐+竞技场</td>
+          <td><strong>排位赛+盐场+咸将塔</strong>，PVP 做得较重</td>
+        </tr>
+        <tr>
+          <td>玩法丰富度</td>
+          <td>高（多限时副本+社交玩法）</td>
+          <td>高（职业构筑+大世界探索）</td>
+          <td>高（黑市+淬炼+钓鱼+灯神等）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      从这个对比能看出，<strong>《寻道大千》和《咸鱼之王》本质上是同一套"开箱 + 养成 + 小游戏集合"的思路</strong>，只是换了题材和 PVP 强度；而<strong>《杖剑传说》更接近"放置化的 MMORPG"</strong>，核心乐趣是职业构筑和副本挑战，放置只是降低时间成本的手段。
+    </p>
+
+    <h3>维度 3：数值与付费</h3>
+    <p>
+      付费设计是放置类的核心商业引擎。三款产品的付费深度和节奏也呈现出截然不同的形态：
+    </p>
+
+    <div class="quote-card">
+      <p>《寻道大千》的商业化设计很成熟，逐步推动付费层级深入，有限时礼包、通行证、月卡、直充多层递进；玩家要突破瓶颈必然会碰到付费点，但每一层都有相应的"爽感"对应。</p>
+      <div class="source">来源：公开游戏分析资料对《寻道大千》商业化模式的描述整理</div>
+    </div>
+
+    <p>
+      <strong>《寻道大千》</strong>是典型的"开箱 Like"付费模型：资源消耗型商业化，玩家通过付费购买仙玉、水晶、礼包等资源，加速境界提升。月卡、礼包、限时活动构成完整付费漏斗，<strong>ARPU 值较高</strong>，适合中重氪用户。
+    </p>
+
+    <p>
+      <strong>《杖剑传说》</strong>的付费更偏向"养成评分+赛季奖励"模式，玩家通过购买素材秘境、加速道具、时装等推进赛季进度。TapTap 评价里高频出现的讨论是——"<strong>零氪微氪玩家够不着顶档赛季奖励</strong>"。这说明其付费梯度是明显的，但低氪玩家仍有基础体验空间。
+    </p>
+
+    <p>
+      <strong>《咸鱼之王》</strong>采用的是"卡牌+通行证+资源活动"的组合拳。玩家评价里有一类高频评论颇具代表性：
+    </p>
+
+    <div class="quote-card">
+      <p>这个游戏氪金没有上限，几十个 W 进去的也有，6 元、零氪的也不少。这个全看个人吧，零氪也能玩，只是进度和淬炼会被拉开一些。巨氪被针对也会翻车。我每周 128 通行证 + 一些活动礼包，玩的也挺开心。</p>
+      <div class="source">来源：TapTap《咸鱼之王》玩家评价区长评整理</div>
+    </div>
+
+    <p>
+      这条评论很能代表《咸鱼之王》的付费哲学——<strong>付费上限极高、但零氪门槛极低</strong>，形成了巨氪、小氪、零氪三层用户都能"玩得下去"的宽容结构。这也是它能长线运营 4 年以上的关键。
+    </p>
+
+    <h3>维度 4：长线留存</h3>
+    <p>
+      放置类的留存不是靠"新鲜感"，而是靠"习惯"。三款产品的长线留存策略各有侧重：
+    </p>
+
+    <p>
+      <strong>《寻道大千》</strong>走的是"<strong>内容扩张型</strong>"留存——持续推出新副本、新活动、新联动（比如雨馨联动等），靠内容更新维系玩家。但由于开箱 Like 品类本身的天花板问题，玩家的长线疲劳来得较快，后期目标驱动力会下降，这也是同品类产品普遍面临的问题。
+    </p>
+
+    <p>
+      <strong>《杖剑传说》</strong>走的是"<strong>赛季制留存</strong>"——每个赛季有独立的养成线、排行榜、奖励，老玩家通过跨赛季积累永久提升。这种机制的好处是目标感强，坏处是"赛季焦虑"——玩家担心落后，容易形成"假期不敢停"的心理压力。
+    </p>
+
+    <p>
+      <strong>《咸鱼之王》</strong>的留存哲学是"<strong>习惯型日活</strong>"——每天十分钟的日常任务、一周一次的盐场、限时活动，都设计成低门槛高粘性的循环。一位玩家的评价很到位：
+    </p>
+
+    <div class="quote-card">
+      <p>咸鱼这游戏每天十分钟每日，感觉很休闲。还有 PVP 干架。也许是我老了吧，以前最看不起的这种中年人氪金手游现在也玩的很开心。</p>
+      <div class="source">来源：TapTap《咸鱼之王》玩家评价区</div>
+    </div>
+
+    <h3>维度 5：社区声量</h3>
+    <p>
+      社区声量反映的是用户的"自传播意愿"。三款产品这一项差异巨大：
+    </p>
+
+    <p>
+      <strong>《杖剑传说》</strong>的社区活跃度在三者中最高。TapTap 官方社区攻略超过 3.6 万条，玩家自发产出职业评级、词条评分、赛季计算等深度内容，评论区讨论氛围偏核心玩家向。这种社区生态对产品长线健康度是极大加分。
+    </p>
+
+    <p>
+      <strong>《咸鱼之王》</strong>的社区氛围更"娱乐化"——玩家评价以吐槽体、段子体为主，充满"打油诗式"的自嘲和魔性表达，反而形成独特的社区文化。这种社区氛围降低了讨论门槛，让轻度玩家也愿意发声。
+    </p>
+
+    <p>
+      <strong>《寻道大千》</strong>的社区声量更多来自买量广告和短视频 UGC，而非玩家深度讨论。TapTap 评价区的讨论密度明显低于前两者，且负面评论集中在"过度营销""广告多"等买量模式的副作用上。
+    </p>
+  </section>
+
+  <!-- 章节 3：三条路径 -->
+  <section class="chapter">
+    <div class="chapter-header">
+      <div class="chapter-num">CHAPTER 03 / THREE PATHS</div>
+      <h2 class="chapter-title">三款产品，三条放置类生存路径</h2>
+    </div>
+
+    <p>
+      把前面五个维度的观察抽象起来，这三款产品其实代表了放置类赛道上三条不同的生存路径。每一条路径都是完整的商业逻辑——从买量、到转化、到留存、到变现形成闭环。理解这三条路径，是理解整个放置类赛道的关键。
+    </p>
+
+    <div class="path-card xdds">
+      <div class="path-label">PATH 01 · 买量速决型</div>
+      <h4>《寻道大千》路径：小游戏+重买量+开箱爽感</h4>
+      <div class="path-core">核心逻辑：用买量把用户拉进小游戏→用国风修仙题材降低认知门槛→用开箱爽感+爆装备反馈快速建立付费习惯→靠内容更新延长生命周期</div>
+      <p>
+        这条路径的胜负手在"<strong>买量效率</strong>"和"<strong>首日转化</strong>"。小游戏形态即点即玩、无需下载，极大降低了用户尝试成本。题材选"修仙"这种下沉市场最熟悉的文化元素，让广告素材的点击-转化链路非常短。核心玩法设计成"砍树爆装备"的单一动作反馈，新用户前 10 分钟就能获得爽快感，付费节点也卡在爽感最高的时候。
+      </p>
+      <div class="takeaway">适用场景：具备强买量能力+题材选择大众化+玩法爽感导向的产品。运营侧重点是素材迭代效率和付费漏斗优化。</div>
+    </div>
+
+    <div class="path-card zjcs">
+      <div class="path-label">PATH 02 · 社区精品型</div>
+      <h4>《杖剑传说》路径：精品 MMO 底子+放置外衣+核心玩家社区</h4>
+      <div class="path-core">核心逻辑：用日系二次元美术吸引泛二次元用户→用 MMO 级别的内容深度留住核心玩家→用赛季制+工会系统维系长线→靠社区活跃度自发传播</div>
+      <p>
+        这条路径的胜负手在"<strong>内容深度</strong>"和"<strong>社区活跃度</strong>"。它放弃了小游戏的快进快出打法，主动选择了更高的获客门槛和更深的用户关系。玩家留下来后，通过职业构筑、副本挑战、赛季排名等深度内容建立情感联结，然后在 TapTap 这类社区形成口碑反哺。付费结构是"<strong>赛季奖励+养成深度</strong>"，不追求首日转化，追求长线 LTV。
+      </p>
+      <div class="takeaway">适用场景：具备美术与内容能力+瞄准核心玩家人群+接受慢热冷启动的产品。运营侧重点是社区运营、赛季节奏和核心玩家体感。</div>
+    </div>
+
+    <div class="path-card xyzw">
+      <div class="path-label">PATH 03 · 微信持久型</div>
+      <h4>《咸鱼之王》路径：微信生态+三国IP+十分钟日常</h4>
+      <div class="path-core">核心逻辑：用微信小程序覆盖下沉市场→用三国+搞怪反差降低认知门槛→用极轻量日常任务塑造每日习惯→用巨氪到零氪的宽容设计扩大用户池</div>
+      <p>
+        这条路径的胜负手在"<strong>日常留存</strong>"和"<strong>付费宽容度</strong>"。它抓住的是"<strong>每天十分钟的小时间</strong>"——上班摸鱼、睡前消遣、地铁通勤，这些碎片时间正是休闲放置类的黄金场景。微信生态让用户可以无缝地在聊天和游戏之间切换，社交裂变也变得更自然。付费结构上，它允许玩家从零氪到 W 氪都找到自己的舒适区。
+      </p>
+      <div class="takeaway">适用场景：具备 IP 或题材亲和力+瞄准休闲休憩场景+小程序生态能力的产品。运营侧重点是日常活跃维护、版本活动节奏和社群裂变。</div>
+    </div>
+
+    <div class="insight-box">
+      <p>
+        <strong>核心洞察：</strong>放置类赛道并非"单一赛道"，而是三条并行的路径——<strong>买量速决型、社区精品型、微信持久型</strong>。三条路径的胜负手、用户画像、运营打法完全不同。当一款新产品进入放置类赛道时，第一个关键决策不是玩法设计，而是<strong>选择走哪条路径</strong>——走错路径的优秀产品比走对路径的平庸产品更容易死。
+      </p>
+    </div>
+  </section>
+
+  <!-- 章节 4：启示 -->
+  <section class="chapter">
+    <div class="chapter-header">
+      <div class="chapter-num">CHAPTER 04 / IMPLICATIONS</div>
+      <h2 class="chapter-title">对游戏产品运营的启示</h2>
+    </div>
+
+    <p>
+      做完这次横评，我有三个感触特别深，想作为这份报告的收尾和大家分享：
+    </p>
+
+    <h3>启示 1：运营侧的"路径意识"比"战术意识"更重要</h3>
+    <p>
+      很多新产品的失败不是因为运营动作不到位，而是因为选错了路径后，运营动作再精良也在做错误的事。比如精品 MMO 路线的产品执着于跑买量、小游戏路线的产品想做深度社区——这些都是路径错配。运营同学在入职一个项目时，最先要想清楚的是"<strong>我们走的是哪条路径</strong>"，而不是"<strong>我们要做哪些活动</strong>"。
+    </p>
+
+    <h3>启示 2：玩家的"分层宽容度"决定了产品的天花板</h3>
+    <p>
+      《咸鱼之王》能长线活下来最大的秘密不是玩法设计，而是<strong>它允许零氪玩家和重氪玩家都觉得"我值了"</strong>。反观一些流水很高但生命周期很短的产品，本质都是没处理好分层宽容度——要么对零氪太苛刻导致池子越来越小、要么对重氪不够爽导致变现效率下滑。运营侧需要持续关注分层玩家的"<strong>体感差</strong>"，而不只是"战力差"。
+    </p>
+
+    <h3>启示 3：社区是放置类最稀缺的长线资产</h3>
+    <p>
+      《杖剑传说》的 3.6 万条玩家攻略、《咸鱼之王》的魔性玩家评论文化——这些东西是运营投入多少买量费用都买不来的。一旦形成，它会变成产品长线生命周期的最大护城河。运营侧对社区的投入，短期看不出效果，但长期回报最大。尤其在当下玩家越来越挑剔、买量越来越贵的行业环境下，社区资产的价值只会越来越高。
+    </p>
+  </section>
+
+</article>
+
+<div class="closing">
+  <div class="closing-mark">✦ · · ✦ · · ✦</div>
+  <div class="closing-text">
+    本报告基于作者个人游戏体验、TapTap 官方社区公开内容及行业公开资料整理而成，<br>
+    所涉数据与观察仅用于学习研究交流，不代表任何官方立场。<br><br>
+    CHEN JIAJIA · 2026 · PORTFOLIO 02
+  </div>
+</div>
+
+</body>
+</html>
